@@ -1,0 +1,25 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/04_user_guide/04_data_catalog.html
+
+brands:
+  type: pickle.PickleDataSet
+  filepath: data/01_raw/brands.pkl
+  backend: pickle
+
+brand_details:
+  type: PartitionedDataSet
+  path: data/01_raw/brand_details/
+  dataset: pickle.PickleDataSet
+  filename_suffix: ".pkl"
+
+brand_vectors:
+  type: pickle.PickleDataSet
+  filepath: data/02_intermediate/vectors.pkl
+  backend: pickle
+
+brand_dataset:
+  type: pickle.PickleDataSet
+  filepath: data/03_primary/brand_data.pkl
+  backend: pickle
